@@ -11,7 +11,7 @@ on:
       - '**.md'
 
 jobs:
-  terraform_apply:
+  gradle_test:
     runs-on: ubuntu-latest
     container:
       image: docker://gradle:latest
