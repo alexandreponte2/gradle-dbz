@@ -18,8 +18,18 @@ jobs:
     steps:
     - uses: actions/checkout@v1
 
-    - name: Verify Terraform version
+    - name: gradle version
       run: gradle test
+
+
+    - name: gradle test
+      run: gradle test
+
+    - name: gradle tasks
+      run: gradle tasks
+
+    - name: gradle run
+      run: gradle run
 
     # - name: Terraform init
     #   env:
