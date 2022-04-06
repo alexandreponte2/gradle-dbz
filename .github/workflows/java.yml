@@ -1,0 +1,40 @@
+name: gradle dbz
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+  pull_request:
+      paths-ignore:
+      - '**.md'
+
+jobs:
+  terraform_apply:
+    runs-on: ubuntu-latest
+    container:
+      image: docker://gradle:latest
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Verify Terraform version
+      run: gradle test
+
+    # - name: Terraform init
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #   run: terraform init -input=false
+
+    # - name: Terraform format
+    #   run: terraform fmt
+
+    # - name: Terraform validation
+    #   run: terraform validate
+
+    # - name: Terraform apply
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #   run: terraform apply -auto-approve -input=false
