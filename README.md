@@ -5,5 +5,8 @@
 - gradle build
 
 
+
+
+
 # Caso a versão do gradle esteja travada
 ./gradlew tasks
